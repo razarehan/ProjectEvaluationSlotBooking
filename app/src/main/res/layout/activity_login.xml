@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    android:background="#DEF8F6"
     android:orientation="vertical"
-    android:background="#fff"
+    android:padding="20dp"
 
-    android:padding="20dp">
+    tools:context=".LoginActivity">
 
 
     <TextView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logo"
-        android:text="Project Evaluation Slot Booking"
-        android:textSize="40dp"
         android:fontFamily="Arial"
-        />
+        android:text="Student Login"
+        android:textSize="40dp" />
 
 
     <EditText
@@ -28,6 +27,7 @@
         android:ems="10"
         android:hint="username"
         android:inputType="textEmailAddress"
+        android:textColorHighlight="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.423"
@@ -53,23 +53,22 @@
         android:id="@+id/login1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:elevation="0dp"
         android:layout_gravity="center"
+        android:elevation="0dp"
+        android:text="Login"
 
-         />
+        />
 
     <Button
         android:id="@+id/reg1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginBottom="200dp"
         android:layout_margin="5dp"
-        android:text="New Student? Register Now"
+        android:layout_marginBottom="200dp"
         android:background="#00000000"
         android:elevation="0dp"
         android:fontFamily="antic"
-        android:textColor="#000"
-        />
+        android:text="New Student? Register Now"
+        android:textColor="#000" />
 </LinearLayout>
