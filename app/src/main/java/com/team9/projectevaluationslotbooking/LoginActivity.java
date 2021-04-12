@@ -14,6 +14,18 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin, btnRegister;
     EditText user, pass;
     DBHandler myDB;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
+        String username = sessionManagement.getSession();
+        if(username != null) {
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
                 String password = pass.getText().toString();
 
                 if(myDB.checkUsernamePassword(username,password)) {
+                    SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
+                    sessionManagement.saveSession(username);
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
                 }
@@ -52,6 +66,4 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
-
 }
