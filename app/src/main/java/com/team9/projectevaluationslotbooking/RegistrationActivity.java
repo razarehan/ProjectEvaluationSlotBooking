@@ -14,7 +14,8 @@ import android.widget.Toast;
 public class RegistrationActivity extends AppCompatActivity {
 
     Button btnLogin, btnRegister;
-    EditText fname, lname, phone, branch, roll, email, pass, cnfPass;
+    EditText fname, lname, phone, roll, email, pass, cnfPass;
+    Spinner branch;
     RadioButton male,female;
 
     DBHandler myDB;
@@ -27,7 +28,7 @@ public class RegistrationActivity extends AppCompatActivity {
         fname = (EditText)findViewById(R.id.fname);
         lname = (EditText)findViewById(R.id.lname);
         phone = (EditText)findViewById(R.id.phone);
-        branch = (EditText)findViewById(R.id.branch_spinner);
+        branch = (Spinner) findViewById(R.id.branch_spinner);
         roll = (EditText)findViewById(R.id.roll);
         email = (EditText)findViewById(R.id.email);
         pass = (EditText)findViewById(R.id.pass);
@@ -45,7 +46,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String firstName = fname.getText().toString();
                 String lastName = lname.getText().toString();
                 String phoneNumber = phone.getText().toString();
-                String brnh = branch.getText().toString();
+                String brnh = branch.getSelectedItem().toString();
                 String rollNumber = roll.getText().toString();
                 String mail_ID = email.getText().toString().toLowerCase();
                 String password = pass.getText().toString();
