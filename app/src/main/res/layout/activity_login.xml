@@ -21,10 +21,9 @@
         />
 
 
-
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="338dp"
+        android:layout_width="305dp"
         android:layout_height="45dp"
         android:ems="10"
         android:hint="username"
@@ -38,7 +37,7 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="334dp"
+        android:layout_width="303dp"
         android:layout_height="46dp"
         android:ems="10"
         android:hint="password"

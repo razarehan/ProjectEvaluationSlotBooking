@@ -27,7 +27,7 @@ public class RegistrationActivity extends AppCompatActivity {
         fname = (EditText)findViewById(R.id.fname);
         lname = (EditText)findViewById(R.id.lname);
         phone = (EditText)findViewById(R.id.phone);
-        branch = (EditText)findViewById(R.id.branch);
+        branch = (EditText)findViewById(R.id.branch_spinner);
         roll = (EditText)findViewById(R.id.roll);
         email = (EditText)findViewById(R.id.email);
         pass = (EditText)findViewById(R.id.pass);
