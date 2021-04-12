@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button btnLogout;
+    Button btnLogout, btnMsg;
     TextView tvWelcome;
 
     @Override
@@ -28,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        btnMsg = (Button)findViewById((R.id.btnMsg));
         btnLogout = (Button)findViewById(R.id.btnlogout);
         tvWelcome = (TextView) findViewById(R.id.textView2);
 
@@ -35,12 +36,19 @@ public class HomeActivity extends AppCompatActivity {
 
         tvWelcome.setText("Welcome "+sessionManagement.getSession());
 
-
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sessionManagement.destroySession();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
                 startActivity(intent);
             }
         });

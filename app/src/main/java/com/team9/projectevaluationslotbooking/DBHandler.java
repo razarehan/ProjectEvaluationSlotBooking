@@ -16,11 +16,14 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table student(email_address text primary key, password text, fname text, lname text, sex text, phone_number text, branch text, roll_number text)");
+        db.execSQL("create table message(message_id integer not null PRIMARY KEY AUTOINCREMENT, sender text, receiver text, msg text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists student");
+        db.execSQL("drop table if exists message");
+        onCreate(db);
     }
 
     public boolean registerStudent(String fname, String lname, String sex, String phone, String branch, String roll, String email, String pass) {
@@ -52,5 +55,18 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from student where email_address = ? and password =?", new String[] {username,password});
         if(cursor.getCount()>0)     return true;
         else                        return false;
+    }
+
+    public boolean sendMessage(String sender, String receiver, String msg) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        //contentValues.put("message_id", 1);
+        contentValues.put("sender", sender);
+        contentValues.put("receiver", receiver);
+        contentValues.put("msg", msg);
+
+        long result = db.insert("message", null, contentValues);
+        if(result==-1)  return false;
+        return true;
     }
 }
