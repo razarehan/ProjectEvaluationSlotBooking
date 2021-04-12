@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ProjectEvaluationSlotBooking</string>
+    
+    <string-array name="branch">
+        <item>Phd</item>
+        <item>M Tech</item>
+        <item>MCA</item>
+        <item>MSc</item>
+        <item>MBA</item>
+        <item>B Tech</item>
+        <item>B Arch</item>
+    </string-array>
 </resources>
