@@ -253,7 +253,7 @@
         android:layout_width="145dp"
         android:layout_height="60dp"
         android:text="Register Now"
-        app:backgroundTint="#139748"
+        app:backgroundTint="#14AE51"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.853"
