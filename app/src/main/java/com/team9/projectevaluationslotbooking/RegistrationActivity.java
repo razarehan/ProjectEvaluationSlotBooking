@@ -1,5 +1,6 @@
 package com.team9.projectevaluationslotbooking;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,11 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     Button btnLogin, btnRegister;
@@ -18,13 +24,15 @@ public class RegistrationActivity extends AppCompatActivity {
     Spinner branch;
     RadioButton male,female;
 
-    DBHandler myDB;
+    FirebaseAuth fAuth;
+
+    //DBHandler myDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        myDB = new DBHandler(this);
+        //myDB = new DBHandler(this);
         fname = (EditText)findViewById(R.id.fname);
         lname = (EditText)findViewById(R.id.lname);
         phone = (EditText)findViewById(R.id.phone);
@@ -39,6 +47,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         female = (RadioButton)findViewById(R.id.female);
         male = (RadioButton)findViewById(R.id.male);
+
+        fAuth = FirebaseAuth.getInstance();
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,10 +80,6 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(myDB.checkUsername(mail_ID)) {
-                    Toast.makeText(RegistrationActivity.this, "Already Exist", Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 String sex;
                 if(m) {
                     sex="M";
@@ -81,15 +87,21 @@ public class RegistrationActivity extends AppCompatActivity {
                 else {
                     sex="F";
                 }
-                if(myDB.registerStudent(firstName,lastName,sex,phoneNumber,brnh,rollNumber,mail_ID,password)) {
-                    Toast.makeText(RegistrationActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(RegistrationActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-                }
+                //=============================
 
+                fAuth.createUserWithEmailAndPassword(mail_ID,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(RegistrationActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(RegistrationActivity.this, "Error! " +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 

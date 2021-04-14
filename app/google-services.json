@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "710180807946",
+    "project_id": "projectevaluationslotbooking",
+    "storage_bucket": "projectevaluationslotbooking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710180807946:android:a4441ae1364e2a2269c6f3",
+        "android_client_info": {
+          "package_name": "com.team9.projectevaluationslotbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710180807946-4o60s91ol114ntpfa8n747bm56cp14se.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABylWAXHAoUPJMGd7knoswWBcTCkKZoEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710180807946-4o60s91ol114ntpfa8n747bm56cp14se.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
