@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,15 +21,15 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin, btnRegister;
     EditText user, pass;
     FirebaseAuth fAuth;
-
+    ProgressBar pgBar;
     @Override
     protected void onStart() {
         super.onStart();
 
-        if(FirebaseAuth.getInstance()==null) {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(intent);
-        }
+//        if(FirebaseAuth.getInstance().getCurrentUser()==null) {
+//            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     @Override
@@ -40,13 +41,14 @@ public class LoginActivity extends AppCompatActivity {
 
         user = (EditText)findViewById(R.id.editTextTextEmailAddress);
         pass = (EditText)findViewById(R.id.editTextTextPassword);
-
+        pgBar = (ProgressBar)findViewById(R.id.progressBar2);
         btnLogin = (Button)findViewById(R.id.login1);
         btnRegister = (Button)findViewById(R.id.reg1);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pgBar.setVisibility(View.VISIBLE);
                 String username = user.getText().toString().toLowerCase();
                 String password = pass.getText().toString();
 
@@ -55,11 +57,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+                            pgBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this,"Logged in successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(intent);
                         }
                         else {
+                            pgBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this,"Invalid username or password", Toast.LENGTH_SHORT).show();
                         }
                     }

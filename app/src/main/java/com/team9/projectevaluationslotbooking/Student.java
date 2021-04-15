@@ -7,9 +7,8 @@ public class Student {
     private String branch;
     private String rollNumber;
     private String email;
-    private String password;
 
-    public Student(String fname, String lname, String sex, String phone_number, String branch, String rollNumber, String email, String password) {
+    public Student(String fname, String lname, String sex, String phone_number, String branch, String rollNumber, String email) {
         this.fname = fname;
         this.lname = lname;
         this.sex = sex;
@@ -17,7 +16,6 @@ public class Student {
         this.branch = branch;
         this.rollNumber = rollNumber;
         this.email = email;
-        this.password = password;
     }
 
     public String getFname() {
@@ -74,13 +72,5 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

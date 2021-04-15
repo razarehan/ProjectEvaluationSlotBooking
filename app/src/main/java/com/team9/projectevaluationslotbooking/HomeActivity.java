@@ -18,10 +18,10 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(FirebaseAuth.getInstance()==null) {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
-        }
+//        if(FirebaseAuth.getInstance()==null) {
+//            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     @Override
@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        //tvWelcome.setText("Welcome "+sessionManagement.getSession());
+        tvWelcome.setText("Welcome "+ FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
