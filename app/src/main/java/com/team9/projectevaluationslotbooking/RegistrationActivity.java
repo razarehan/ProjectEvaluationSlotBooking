@@ -58,7 +58,7 @@ public class RegistrationActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pgBar.setVisibility(View.VISIBLE);
+
                 String firstName = fname.getText().toString();
                 String lastName = lname.getText().toString();
                 String phoneNumber = phone.getText().toString();
@@ -99,6 +99,8 @@ public class RegistrationActivity extends AppCompatActivity {
                     sex="F";
                 }
                 //=============================
+                pgBar.setVisibility(View.VISIBLE);
+
                 fAuth.createUserWithEmailAndPassword(mail_ID,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
