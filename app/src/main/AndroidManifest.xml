@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectEvaluationSlotBooking">
         <activity android:name=".MessageInboxActivity"></activity>
-        <activity android:name=".MessageSentActivity" />
         <activity android:name=".MessageComposeActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".HomeActivity" />

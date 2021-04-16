@@ -28,11 +28,4 @@
         app:layout_constraintStart_toStartOf="@+id/btnCmp"
         app:layout_constraintTop_toBottomOf="@+id/btnCmp" />
 
-    <Button
-        android:id="@+id/btnSent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sent"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="386dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MessageActivity extends AppCompatActivity {
 
-    Button btnCmp, btnInbox, btnSent;
+    Button btnCmp, btnInbox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +17,7 @@ public class MessageActivity extends AppCompatActivity {
 
         btnCmp = (Button)findViewById(R.id.btnCmp);
         btnInbox = (Button)findViewById(R.id.btnInbox);
-        btnSent = (Button)findViewById(R.id.btnSent);
+
 
         btnCmp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,13 +35,7 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
-        btnSent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MessageSentActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
     }
