@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="Arial"
-        android:text="Student Login"
+        android:text="Student/Teacher Login"
         android:textSize="40dp" />
 
 
@@ -25,7 +25,7 @@
         android:layout_width="305dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:hint="username"
+        android:hint="email address"
         android:inputType="textEmailAddress"
         android:textColorHighlight="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"

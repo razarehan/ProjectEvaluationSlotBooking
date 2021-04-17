@@ -48,6 +48,14 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+                            if(username.contains("admin")) {
+                                pgBar.setVisibility(View.GONE);
+                                Toast.makeText(LoginActivity.this,"Logged in as ADMIN", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
+                                startActivity(intent);
+                                return;
+                            }
+
                             if(username.contains("teacher")) {
                                 pgBar.setVisibility(View.GONE);
                                 Toast.makeText(LoginActivity.this,"Logged in successfully", Toast.LENGTH_SHORT).show();
@@ -55,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 return;
                             }
+
+
                             pgBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this,"Logged in successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
