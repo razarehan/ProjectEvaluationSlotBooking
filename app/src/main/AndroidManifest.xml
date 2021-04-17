@@ -14,9 +14,8 @@
         <activity android:name=".MessageComposeActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".RegistrationActivity">
-            android:label="Registration Page"
-        </activity>
+        <activity android:name=".RegistrationActivity" />
+
         <activity android:name=".LoginActivity">
             android:label="Login Page"
             <intent-filter>
