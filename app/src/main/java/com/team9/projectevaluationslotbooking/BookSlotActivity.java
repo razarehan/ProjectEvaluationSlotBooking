@@ -16,7 +16,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
@@ -25,6 +29,8 @@ public class BookSlotActivity extends AppCompatActivity {
     private int dd,mm,yyyy;
     private Button dateButton, submitBtn;
     private EditText dateVal, pName;
+    private DatabaseReference databaseReference;
+    private boolean flag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,7 @@ public class BookSlotActivity extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                month++;
                                 dateVal.setText(dayOfMonth+"/"+month+"/"+year);
                             }
                         },yyyy,mm,dd);
@@ -62,6 +69,28 @@ public class BookSlotActivity extends AppCompatActivity {
                 String slotDate = dateVal.getText().toString();
                 if(projectName.equals("") || slotDate.equals("")) {
                     Toast.makeText(BookSlotActivity.this, "Fill all fields", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                flag = false;
+                databaseReference = FirebaseDatabase.getInstance().getReference("Project");
+
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot ds:snapshot.getChildren()) {
+                            Project project = ds.getValue(Project.class);
+                            if(project.getStudent().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+                                flag =true;
+                            }
+                        }
+                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                });
+                if(flag == true)  {
+                    Toast.makeText(BookSlotActivity.this, "Already Requested", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Project project = new Project(projectName, slotDate, FirebaseAuth.getInstance().getCurrentUser().getEmail());
