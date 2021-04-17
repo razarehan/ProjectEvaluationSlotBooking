@@ -68,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = pass.getText().toString();
                 String cnfPassword = cnfPass.getText().toString();
 
-                if(mail_ID.contains("teacher")) {
+                if(mail_ID.contains("teacher") || mail_ID.contains("admin")) {
                     Toast.makeText(RegistrationActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -93,6 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 if(!Patterns.EMAIL_ADDRESS.matcher(mail_ID).matches()) {
                     email.setError("Invalid email address");
                     email.requestFocus();
+                    return;
                 }
 
                 String sex;
