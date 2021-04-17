@@ -68,6 +68,10 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = pass.getText().toString();
                 String cnfPassword = cnfPass.getText().toString();
 
+                if(mail_ID.contains("teacher")) {
+                    Toast.makeText(RegistrationActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 boolean m=false, f=false;
                 m = male.isChecked();
                 f = female.isChecked();

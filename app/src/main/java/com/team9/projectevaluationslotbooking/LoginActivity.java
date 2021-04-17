@@ -18,19 +18,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btnLogin, btnRegister;
-    EditText user, pass;
-    FirebaseAuth fAuth;
-    ProgressBar pgBar;
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-//        if(FirebaseAuth.getInstance().getCurrentUser()==null) {
-//            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-//            startActivity(intent);
-//        }
-    }
+    private Button btnLogin, btnRegister;
+    private EditText user, pass;
+    private FirebaseAuth fAuth;
+    private ProgressBar pgBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +48,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+                            if(username.contains("teacher")) {
+                                pgBar.setVisibility(View.GONE);
+                                Toast.makeText(LoginActivity.this,"Logged in successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
+                                startActivity(intent);
+                                return;
+                            }
                             pgBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this,"Logged in successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

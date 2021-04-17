@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectEvaluationSlotBooking">
-        <activity android:name=".BookSlotActivity"></activity>
+        <activity android:name=".TeacherActivity"></activity>
+        <activity android:name=".BookSlotActivity" />
         <activity android:name=".MessageInboxActivity" />
         <activity android:name=".MessageComposeActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegistrationActivity" />
-
         <activity android:name=".LoginActivity">
             android:label="Login Page"
             <intent-filter>
