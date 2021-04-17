@@ -64,14 +64,14 @@ public class BookSlotActivity extends AppCompatActivity {
                     Toast.makeText(BookSlotActivity.this, "Fill all fields", Toast.LENGTH_LONG).show();
                     return;
                 }
-                Project project = new Project(projectName, slotDate);
+                Project project = new Project(projectName, slotDate, FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
                 FirebaseDatabase.getInstance().getReference().child("Project").push().setValue(project).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(BookSlotActivity.this, "Request send successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(intent);
                         }
                         else {
