@@ -14,7 +14,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="107dp"
         android:text="Enter Project Name:"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/projectName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,12 +22,15 @@
     <EditText
         android:id="@+id/projectName"
         android:layout_width="174dp"
-        android:layout_height="43dp"
+        android:layout_height="0dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="96dp"
+        android:layout_marginBottom="37dp"
+        android:textColor="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,32 +38,53 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="233dp"
+        android:layout_marginRight="233dp"
         android:text="Select date: "
         android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/calendarView"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="268dp"
-        android:layout_height="269dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintEnd_toStartOf="@+id/date"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/projectName" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
         android:id="@+id/btn_ReqSlot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginBottom="135dp"
         android:text="Request Slot"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+        app:layout_constraintTop_toBottomOf="@+id/projectName" />
+
+    <Button
+        android:id="@+id/date"
+        style="?android:spinnerStyle"
+        android:layout_width="169dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:text="__/__/____"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextDate"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="92dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginBottom="519dp"
+        android:ems="10"
+        android:inputType="date"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/projectName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
