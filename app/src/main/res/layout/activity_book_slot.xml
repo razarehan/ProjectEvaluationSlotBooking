@@ -56,6 +56,8 @@
         android:text="Select date                      :"
         android:textColor="@color/black"
         android:textSize="15dp"
+        app:backgroundTint="#9C27B0"
+        app:iconTint="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
