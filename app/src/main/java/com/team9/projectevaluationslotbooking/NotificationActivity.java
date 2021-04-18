@@ -40,9 +40,8 @@ public class NotificationActivity extends AppCompatActivity {
                 for(DataSnapshot ds:snapshot.getChildren()) {
                     Project project = ds.getValue(Project.class);
                     projectList.add(project);
-                    Toast.makeText(NotificationActivity.this, ""+project.getProjectName(), Toast.LENGTH_LONG).show();
                 }
-                helperAdapter = new HelperAdapter1(projectList);
+                helperAdapter = new HelperAdapter1(projectList, NotificationActivity.this);
                 recyclerView.setAdapter(helperAdapter);
             }
 
