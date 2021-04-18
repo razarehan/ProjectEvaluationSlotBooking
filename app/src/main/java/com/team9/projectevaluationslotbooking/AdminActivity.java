@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminActivity extends AppCompatActivity {
     
@@ -71,6 +72,23 @@ public class AdminActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+                            Teacher teacher = new Teacher(mail_ID);
+                            FirebaseDatabase.getInstance().getReference("Teacher")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(teacher).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()) {
+                                        Toast.makeText(AdminActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        Toast.makeText(AdminActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
                             Toast.makeText(AdminActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                             startActivity(intent);
