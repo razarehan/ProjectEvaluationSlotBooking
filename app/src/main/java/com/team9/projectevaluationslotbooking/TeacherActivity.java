@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class TeacherActivity extends AppCompatActivity {
 
     Button btnLogout, btnMsg;
-    TextView tvWelcome;
 
     @Override
     protected void onStart() {
@@ -32,17 +31,10 @@ public class TeacherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_teacher);
 
         btnMsg = (Button)findViewById((R.id.btnMsg));
         btnLogout = (Button)findViewById(R.id.btnlogout);
-        tvWelcome = (TextView) findViewById(R.id.textView2);
-
-
-
-
-
-
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

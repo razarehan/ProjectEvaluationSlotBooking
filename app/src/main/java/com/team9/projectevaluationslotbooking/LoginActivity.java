@@ -55,20 +55,20 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 return;
                             }
-
-                            if(username.contains("teacher")) {
+                            else if(username.contains("_")) {
                                 pgBar.setVisibility(View.GONE);
-                                Toast.makeText(LoginActivity.this,"Logged in successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
+                                Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                 startActivity(intent);
+
                                 return;
                             }
-
-
-                            pgBar.setVisibility(View.GONE);
-                            Toast.makeText(LoginActivity.this,"Logged in successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                            startActivity(intent);
+                            else {
+                                pgBar.setVisibility(View.GONE);
+                                Toast.makeText(LoginActivity.this,"Logged in as Teacher", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
+                                startActivity(intent);
+                            }
                         }
                         else {
                             pgBar.setVisibility(View.GONE);

@@ -68,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = pass.getText().toString();
                 String cnfPassword = cnfPass.getText().toString();
 
-                if(mail_ID.contains("teacher") || mail_ID.contains("admin")) {
+                if(!mail_ID.contains("_") || mail_ID.contains("admin")) {
                     Toast.makeText(RegistrationActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
                     return;
                 }

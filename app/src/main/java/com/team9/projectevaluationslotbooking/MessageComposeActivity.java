@@ -36,10 +36,16 @@ public class MessageComposeActivity extends AppCompatActivity {
 
                 String receiver = etTO.getText().toString().toLowerCase();
                 String message = etMSG.getText().toString();
-//                if(!db.checkUsername(receiver)) {
-//                    Toast.makeText(MessageComposeActivity.this, "Invalid email Address", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+
+                if(!receiver.contains("_") && !FirebaseAuth.getInstance().getCurrentUser().getEmail().contains("_")) {
+                    Toast.makeText(MessageComposeActivity.this, "You can not send to teacher", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(receiver.contains("_") && FirebaseAuth.getInstance().getCurrentUser().getEmail().contains("_")) {
+                    Toast.makeText(MessageComposeActivity.this, "You can not send to student", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if(receiver.equals("") || message.equals("")) {
                     Toast.makeText(MessageComposeActivity.this, "Fill all the fields", Toast.LENGTH_SHORT).show();
                     return;

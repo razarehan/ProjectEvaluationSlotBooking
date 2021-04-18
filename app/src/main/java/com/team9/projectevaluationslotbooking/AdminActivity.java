@@ -52,7 +52,7 @@ public class AdminActivity extends AppCompatActivity {
                     Toast.makeText(AdminActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(!mail_ID.contains("teacher")) {
+                if(mail_ID.contains("_")) {
                     Toast.makeText(AdminActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
                     return;
                 }
