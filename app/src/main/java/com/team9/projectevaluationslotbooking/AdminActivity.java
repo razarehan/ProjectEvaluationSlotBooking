@@ -43,64 +43,64 @@ public class AdminActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
-        teacherAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String mail_ID = email.getText().toString();
-                String password = pass.getText().toString();
-
-                if(mail_ID.contains("admin")) {
-                    Toast.makeText(AdminActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(mail_ID.contains("_")) {
-                    Toast.makeText(AdminActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(mail_ID.equals("") || password.equals("")) {
-                    Toast.makeText(AdminActivity.this, "Fill all Fields", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if(!Patterns.EMAIL_ADDRESS.matcher(mail_ID).matches()) {
-                    email.setError("Invalid email address");
-                    email.requestFocus();
-                    return;
-                }
-
-                fAuth.createUserWithEmailAndPassword(mail_ID,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-                            Teacher teacher = new Teacher(mail_ID);
-                            FirebaseDatabase.getInstance().getReference("Teacher")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(teacher).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()) {
-                                        Toast.makeText(AdminActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
-
-                                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                        startActivity(intent);
-                                    }
-                                    else {
-                                        Toast.makeText(AdminActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-                            Toast.makeText(AdminActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(AdminActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-
-            }
-        });
+//        teacherAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String mail_ID = email.getText().toString();
+//                String password = pass.getText().toString();
+//
+//                if(mail_ID.contains("admin")) {
+//                    Toast.makeText(AdminActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if(mail_ID.contains("_")) {
+//                    Toast.makeText(AdminActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if(mail_ID.equals("") || password.equals("")) {
+//                    Toast.makeText(AdminActivity.this, "Fill all Fields", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                if(!Patterns.EMAIL_ADDRESS.matcher(mail_ID).matches()) {
+//                    email.setError("Invalid email address");
+//                    email.requestFocus();
+//                    return;
+//                }
+//
+//                fAuth.createUserWithEmailAndPassword(mail_ID,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if(task.isSuccessful()) {
+//                            Teacher teacher = new Teacher(mail_ID);
+//                            FirebaseDatabase.getInstance().getReference("Teacher")
+//                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                    .setValue(teacher).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    if(task.isSuccessful()) {
+//                                        Toast.makeText(AdminActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
+//
+//                                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                                        startActivity(intent);
+//                                    }
+//                                    else {
+//                                        Toast.makeText(AdminActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
+//                                    }
+//                                }
+//                            });
+//                            Toast.makeText(AdminActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
+//                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                            startActivity(intent);
+//                        }
+//                        else {
+//                            Toast.makeText(AdminActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                });
+//
+//            }
+//        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

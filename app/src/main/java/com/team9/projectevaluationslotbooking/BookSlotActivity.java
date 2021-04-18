@@ -98,7 +98,7 @@ public class BookSlotActivity extends AppCompatActivity {
                     return;
                 }
 
-                Project project = new Project(projectName, slotDate, FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                Project project = new Project(projectName, slotDate, FirebaseAuth.getInstance().getCurrentUser().getEmail(), "null","null","null","null","null");
 
                 FirebaseDatabase.getInstance().getReference().child("Project").push().setValue(project).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class TeacherActivity extends AppCompatActivity {
 
-    Button btnLogout, btnMsg;
+    Button btnLogout, btnMsg, btnNotify;
 
     @Override
     protected void onStart() {
@@ -35,6 +35,7 @@ public class TeacherActivity extends AppCompatActivity {
 
         btnMsg = (Button)findViewById((R.id.btnMsg));
         btnLogout = (Button)findViewById(R.id.btnlogout);
+        btnNotify = (Button)findViewById(R.id.button4);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +50,14 @@ public class TeacherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnNotify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
                 startActivity(intent);
             }
         });

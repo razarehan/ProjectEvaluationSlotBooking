@@ -28,4 +28,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="57dp"
+        android:text="Notification"
+        app:layout_constraintStart_toEndOf="@+id/btnMsg"
+        app:layout_constraintTop_toBottomOf="@+id/btnMsg" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
