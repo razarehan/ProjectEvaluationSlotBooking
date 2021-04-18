@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class MarkSlotActivity extends AppCompatActivity {
+public class MarkSlotActivity extends AppCompatActivity
+{
     private TextView pName, reqSlotDate;
+    private Button btnMarkSlot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +25,7 @@ public class MarkSlotActivity extends AppCompatActivity {
 
         pName.setText("Project Name: "+pname);
         reqSlotDate.setText("Slot request on: "+reqDate);
+
+
     }
 }
