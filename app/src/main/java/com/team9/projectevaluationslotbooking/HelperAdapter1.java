@@ -21,7 +21,7 @@ public class HelperAdapter1 extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notify_design, parent, false);
-        HelperAdapter1.ViewHolderClass viewHolderClass = new HelperAdapter1.ViewHolderClass(view);
+        ViewHolderClass viewHolderClass = new ViewHolderClass(view);
 
 
         return viewHolderClass;
@@ -29,7 +29,7 @@ public class HelperAdapter1 extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        HelperAdapter1.ViewHolderClass viewHolderClass = (HelperAdapter1.ViewHolderClass)holder;
+        ViewHolderClass viewHolderClass = (ViewHolderClass)holder;
         Project project = projectList.get(position);
 
         viewHolderClass.name.setText(project.getProjectName());
@@ -38,7 +38,7 @@ public class HelperAdapter1 extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return projectList.size();
     }
 
     public class ViewHolderClass extends RecyclerView.ViewHolder {
