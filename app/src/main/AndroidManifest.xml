@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectEvaluationSlotBooking">
-        <activity android:name=".MarkSlotActivity"></activity>
+        <activity android:name=".StatusActivity"></activity>
+        <activity android:name=".MarkSlotActivity" />
         <activity android:name=".NotificationActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".TeacherActivity" />
@@ -27,7 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
