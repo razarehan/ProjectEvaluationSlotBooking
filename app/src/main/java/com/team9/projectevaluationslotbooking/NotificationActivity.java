@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -23,6 +24,15 @@ public class NotificationActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     HelperAdapter1 helperAdapter;
     DatabaseReference databaseReference;
+    String teacherCode;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        teacherCode = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        teacherCode = teacherCode.substring(0,8);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +50,18 @@ public class NotificationActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds:snapshot.getChildren()) {
                     Project project = ds.getValue(Project.class);
-                    projectList.add(project);
+                    if(project.getTeacher1().equals("null") && teacherCode.equals("teacher1")) {
+                        projectList.add(project);
+                    }
+                    if(project.getTeacher2().equals("null") && teacherCode.equals("teacher2")) {
+                        projectList.add(project);
+                    }
+                    if(project.getTeacher3().equals("null") && teacherCode.equals("teacher3")) {
+                        projectList.add(project);
+                    }
+                    if(project.getTeacher4().equals("null") && teacherCode.equals("teacher4")) {
+                        projectList.add(project);
+                    }
                 }
                 helperAdapter = new HelperAdapter1(projectList, NotificationActivity.this);
                 recyclerView.setAdapter(helperAdapter);

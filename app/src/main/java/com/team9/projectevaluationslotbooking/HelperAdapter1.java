@@ -62,11 +62,10 @@ public class HelperAdapter1 extends RecyclerView.Adapter {
             String pname = project.getProjectName();
             String date = project.getSlotRequested();
 
-            Toast.makeText(context, "position", Toast.LENGTH_LONG).show();
-
             Intent intent = new Intent(context, MarkSlotActivity.class);
             intent.putExtra("pname", pname);
             intent.putExtra("reqDate", date);
+            intent.putExtra("useremail",project.getStudent());
             context.startActivity(intent);
         }
     }

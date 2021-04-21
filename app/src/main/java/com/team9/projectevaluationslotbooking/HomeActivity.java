@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button btnLogout, btnMsg,btn_BookSlot;
+    Button btnLogout, btnMsg, btn_BookSlot, btnStatus;
     TextView tvWelcome;
 
     @Override
@@ -39,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         btnLogout = (Button)findViewById(R.id.btnlogout);
         tvWelcome = (TextView) findViewById(R.id.textView2);
         btn_BookSlot =(Button)findViewById(R.id.btn_BookSlot);
+        btnStatus =(Button)findViewById(R.id.button5);
 
 
 
@@ -74,6 +75,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), BookSlotActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StatusActivity.class);
                 startActivity(intent);
             }
         });
