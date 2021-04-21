@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,18 +27,23 @@ public class MessageInboxActivity extends AppCompatActivity {
     List<Message> messageList;
     HelperAdapter helperAdapter;
     DatabaseReference databaseReference;
-
+    ProgressBar pgBar;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_inbox);
+        getSupportActionBar().setTitle("Inbox");
 
+        //pgBar = (ProgressBar)findViewById(R.id.pgBar);
+        //pgBar.setVisibility(View.VISIBLE);
         recView = (RecyclerView)findViewById(R.id.recyclerView);
         recView.setLayoutManager(new LinearLayoutManager(this));    // diff
         messageList = new ArrayList<>();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Message");
-
+        //pgBar.setVisibility(View.GONE);
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

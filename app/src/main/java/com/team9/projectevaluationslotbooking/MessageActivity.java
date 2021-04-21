@@ -14,6 +14,7 @@ public class MessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+        getSupportActionBar().setTitle("Message");
 
         btnCmp = (Button)findViewById(R.id.btnCmp);
         btnInbox = (Button)findViewById(R.id.btnInbox);

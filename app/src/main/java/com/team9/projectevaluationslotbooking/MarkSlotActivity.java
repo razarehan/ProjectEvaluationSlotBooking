@@ -15,7 +15,7 @@ public class MarkSlotActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mark_slot);
-
+        getSupportActionBar().setTitle("Mark Slot");
         Intent intent = getIntent();
         String pname = intent.getStringExtra("pname");
         String reqDate = intent.getStringExtra("reqDate");

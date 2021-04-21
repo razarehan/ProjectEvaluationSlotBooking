@@ -32,6 +32,7 @@ public class TeacherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
+        getSupportActionBar().setTitle("Teacher Home Page");
 
         btnMsg = (Button)findViewById((R.id.btnMsg));
         btnLogout = (Button)findViewById(R.id.btnlogout);

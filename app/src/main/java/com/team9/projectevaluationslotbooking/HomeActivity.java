@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        getSupportActionBar().setTitle("Student Home Page");
 
         btnMsg = (Button)findViewById((R.id.btnMsg));
         btnLogout = (Button)findViewById(R.id.btnlogout);

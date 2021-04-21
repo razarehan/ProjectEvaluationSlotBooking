@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        getSupportActionBar().setTitle("Student/Teacher LOGIN");
         fAuth = FirebaseAuth.getInstance();
 
         user = (EditText)findViewById(R.id.editTextTextEmailAddress);

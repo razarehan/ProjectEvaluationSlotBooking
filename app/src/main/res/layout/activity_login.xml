@@ -16,13 +16,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="Arial"
-        android:text="Student/Teacher Login"
-        android:textSize="40dp" />
-
+        android:text="Enter credentials"
+        android:textColor="#000000"
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="305dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:ems="10"
         android:hint="email address"
@@ -37,7 +37,7 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="303dp"
+        android:layout_width="match_parent"
         android:layout_height="46dp"
         android:ems="10"
         android:hint="password"

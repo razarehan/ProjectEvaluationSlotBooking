@@ -35,6 +35,7 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        getSupportActionBar().setTitle("Admin Panel");
 
         teacherAdd = (Button)findViewById(R.id.button3);
         logout = (Button)findViewById(R.id.btnlogout);

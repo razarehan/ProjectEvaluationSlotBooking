@@ -36,6 +36,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        getSupportActionBar().setTitle("Student Registration");
 
         //myDB = new DBHandler(this);
         fname = (EditText)findViewById(R.id.fname);
