@@ -39,14 +39,14 @@ public class MessageComposeActivity extends AppCompatActivity {
                 String receiver = etTO.getText().toString().toLowerCase();
                 String message = etMSG.getText().toString();
 
-                if(!receiver.contains("_") && !FirebaseAuth.getInstance().getCurrentUser().getEmail().contains("_")) {
-                    Toast.makeText(MessageComposeActivity.this, "Can't send to teacher", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-//                if(receiver.contains("_") && FirebaseAuth.getInstance().getCurrentUser().getEmail().contains("_")) {
-//                    Toast.makeText(MessageComposeActivity.this, "You can not send to student", Toast.LENGTH_SHORT).show();
+//                if(!receiver.contains("_") && !FirebaseAuth.getInstance().getCurrentUser().getEmail().contains("_")) {
+//                    Toast.makeText(MessageComposeActivity.this, "Can't send to teacher", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
+                if(receiver.contains("_") && FirebaseAuth.getInstance().getCurrentUser().getEmail().contains("_")) {
+                    Toast.makeText(MessageComposeActivity.this, "Can't send to the Student", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(receiver.equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
                     Toast.makeText(MessageComposeActivity.this, "Can't send to your own account", Toast.LENGTH_SHORT).show();
                     return;
