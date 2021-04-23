@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEF8F6"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="@drawable/bg2"
 
     tools:context=".LoginActivity">
 
@@ -27,7 +27,8 @@
         android:ems="10"
         android:hint="email address"
         android:inputType="textEmailAddress"
-        android:textColorHighlight="@color/black"
+        android:textColorHighlight="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.423"
@@ -42,6 +43,8 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:textColorHighlight="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.402"
@@ -57,7 +60,7 @@
         android:elevation="0dp"
         android:text="Login"
 
-        />
+        app:backgroundTint="#00838F" />
 
     <Button
         android:id="@+id/reg1"

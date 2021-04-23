@@ -9,16 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectEvaluationSlotBooking">
-        <activity android:name=".StatusActivity"></activity>
-        <activity android:name=".MarkSlotActivity" />
-        <activity android:name=".NotificationActivity" />
+        <activity android:name=".SearchActivity"
+            android:parentActivityName=".HomeActivity">
+        </activity>
+        <activity android:name=".StatusActivity"
+            android:parentActivityName=".HomeActivity">
+        </activity>
+        <activity android:name=".MarkSlotActivity"
+            android:parentActivityName=".TeacherActivity">
+        </activity>
+        <activity android:name=".NotificationActivity"
+            android:parentActivityName=".TeacherActivity">
+        </activity>
         <activity android:name=".AdminActivity" />
-        <activity android:name=".TeacherActivity" />
-        <activity android:name=".BookSlotActivity" />
-        <activity android:name=".MessageInboxActivity" />
-        <activity android:name=".MessageComposeActivity" />
+        <activity android:name=".TeacherActivity"
+            android:parentActivityName=".LoginActivity"/>
+        <activity android:name=".BookSlotActivity" android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".MessageInboxActivity"
+            android:parentActivityName=".MessageActivity"></activity>
+        <activity android:name=".MessageComposeActivity"
+            android:parentActivityName=".MessageActivity"></activity>
         <activity android:name=".MessageActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity"
+            android:parentActivityName=".LoginActivity">
+        </activity>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".LoginActivity">
             android:label="Login Page"

@@ -62,6 +62,8 @@ public class BookSlotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_slot);
         getSupportActionBar().setTitle("Book Slot");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         dateVal = (EditText)findViewById(R.id.editTextDate);
         pName = (EditText)findViewById(R.id.projectName);

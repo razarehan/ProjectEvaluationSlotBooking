@@ -24,6 +24,7 @@ public class MessageComposeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_compose);
         getSupportActionBar().setTitle("Compose Message");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnSend = (Button)findViewById(R.id.button);
         btnCancel = (Button)findViewById(R.id.button2);

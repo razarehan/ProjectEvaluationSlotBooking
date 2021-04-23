@@ -35,6 +35,7 @@ public class MessageInboxActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_inbox);
         getSupportActionBar().setTitle("Inbox");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //pgBar = (ProgressBar)findViewById(R.id.pgBar);
         //pgBar.setVisibility(View.VISIBLE);

@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimage2"
+    android:gravity="center"
     tools:context=".HomeActivity">
 
     <Button
         android:id="@+id/btnlogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:text="Logout"
+        app:backgroundTint="#26A69A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +27,11 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="41dp"
+        android:background="#8A91F1FD"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -32,39 +40,60 @@
 
     <Button
         android:id="@+id/btnMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="212dp"
+        android:shadowColor="#FFFFFF"
         android:text="Message"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#EC407A"
         app:layout_constraintEnd_toStartOf="@+id/btn_BookSlot"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#FFFFFF"
+        app:strokeColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btn_BookSlot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:text="Book Slot"
+        app:backgroundTint="#EC407A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnMsg"
         app:layout_constraintTop_toBottomOf="@+id/btnlogout" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="63dp"
-        android:layout_marginLeft="63dp"
-        android:layout_marginBottom="173dp"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
         android:text="Status"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:backgroundTint="#EC407A"
+        app:layout_constraintEnd_toEndOf="@+id/btnMsg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnMsg"
+        app:layout_constraintTop_toBottomOf="@+id/btnMsg" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:capitalize="none"
+        android:text="Search Teacher"
+        android:textAllCaps="true"
+        app:backgroundTint="#EC407A"
+        app:layout_constraintEnd_toEndOf="@+id/btn_BookSlot"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_BookSlot"
+        app:layout_constraintTop_toBottomOf="@+id/btn_BookSlot" />
 </androidx.constraintlayout.widget.ConstraintLayout>

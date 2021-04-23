@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimage2"
     tools:context=".MessageComposeActivity">
 
     <EditText
@@ -16,8 +17,11 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="89dp"
+        android:background="#23F6099F"
         android:ems="10"
+        android:hint="Enter receiver's Email"
         android:inputType="textEmailAddress"
+        android:textColorHint="#80000000"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +36,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="300dp"
+        android:background="#23F6099F"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -45,15 +50,12 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginEnd="500dp"
-        android:layout_marginRight="500dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="sans-serif-medium"
         android:text="To :"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -64,7 +66,9 @@
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginBottom="1dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Message"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine" />
 
@@ -76,6 +80,7 @@
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
         android:text="Drop"
+        app:backgroundTint="#26A69A"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
@@ -85,9 +90,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="Cancel"
+        app:backgroundTint="#EF5350"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />

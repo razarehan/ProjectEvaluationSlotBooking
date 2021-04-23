@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimage2"
     tools:context=".HomeActivity">
 
     <Button
@@ -14,6 +15,7 @@
         android:layout_marginEnd="34dp"
         android:layout_marginRight="34dp"
         android:text="Logout"
+        app:backgroundTint="#0277BD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +27,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="220dp"
         android:text="Message"
+        app:backgroundTint="#F44336"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +41,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:text="Notification"
+        app:backgroundTint="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnlogout" />
 

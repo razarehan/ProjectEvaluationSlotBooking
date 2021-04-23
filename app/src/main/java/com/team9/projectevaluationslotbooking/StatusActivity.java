@@ -24,6 +24,7 @@ public class StatusActivity extends AppCompatActivity {
 
         textView = (TextView)findViewById(R.id.textView21);
         getSupportActionBar().setTitle("STATUS");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Project");
 

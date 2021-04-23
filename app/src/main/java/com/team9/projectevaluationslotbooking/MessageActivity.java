@@ -15,6 +15,7 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         getSupportActionBar().setTitle("Message");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnCmp = (Button)findViewById(R.id.btnCmp);
         btnInbox = (Button)findViewById(R.id.btnInbox);
