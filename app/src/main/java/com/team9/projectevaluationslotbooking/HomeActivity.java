@@ -27,6 +27,16 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         }
+        FirebaseDatabase.getInstance().getReference("Student")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                if(task.isSuccessful()) {
+                    tvWelcome.setText("Welcome " + String.valueOf(task.getResult().child("fname").getValue()));
+                }
+            }
+        });
     }
 
     @Override
@@ -41,20 +51,6 @@ public class HomeActivity extends AppCompatActivity {
         btn_BookSlot =(Button)findViewById(R.id.btn_BookSlot);
         btnStatus =(Button)findViewById(R.id.button5);
         btnSearch =(Button)findViewById(R.id.btn_search);
-
-
-
-        FirebaseDatabase.getInstance().getReference("Student")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-
-                        if(task.isSuccessful()) {
-                            tvWelcome.setText("Welcome " + String.valueOf(task.getResult().child("fname").getValue()));
-                        }
-                    }
-                });
-
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

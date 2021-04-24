@@ -46,19 +46,19 @@ public class StatusActivity extends AppCompatActivity {
                         }
                         if(project.getTeacher1().equals("slot1") || project.getTeacher2().equals("slot1") ||
                                 project.getTeacher3().equals("slot1") || project.getTeacher4().equals("slot1")) {
-                            textView.setText("Slot marked on "+project.getSlotRequested()+" at 8:00am - 10:00am");
+                            textView.setText("Slot marked on "+project.getSlotRequested()+"\nat 8:00am - 10:00am");
                         }
                         if(project.getTeacher1().equals("slot2") || project.getTeacher2().equals("slot2") ||
                                 project.getTeacher3().equals("slot2") || project.getTeacher4().equals("slot2")) {
-                            textView.setText("Slot marked on "+project.getSlotRequested()+" at 10:00am - 12:00pm");
+                            textView.setText("Slot marked on "+project.getSlotRequested()+"\nat 10:00am - 12:00pm");
                         }
                         if(project.getTeacher1().equals("slot3") || project.getTeacher2().equals("slot3") ||
                                 project.getTeacher3().equals("slot3") || project.getTeacher4().equals("slot3")) {
-                            textView.setText("Slot marked on "+project.getSlotRequested()+" at 1:00pm - 3:00pm");
+                            textView.setText("Slot marked on "+project.getSlotRequested()+"\nat 1:00pm - 3:00pm");
                         }
                         if(project.getTeacher1().equals("slot4") || project.getTeacher2().equals("slot4") ||
                                 project.getTeacher3().equals("slot4") || project.getTeacher4().equals("slot4")) {
-                            textView.setText("Slot marked on "+project.getSlotRequested()+" at 3:00pm - 5:00pm");
+                            textView.setText("Slot marked on "+project.getSlotRequested()+"\nat 3:00pm - 5:00pm");
                         }
                     }
                 }

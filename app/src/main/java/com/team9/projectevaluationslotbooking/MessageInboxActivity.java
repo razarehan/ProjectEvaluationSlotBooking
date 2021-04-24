@@ -27,7 +27,6 @@ public class MessageInboxActivity extends AppCompatActivity {
     List<Message> messageList;
     HelperAdapter helperAdapter;
     DatabaseReference databaseReference;
-    ProgressBar pgBar;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,14 +36,13 @@ public class MessageInboxActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Inbox");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //pgBar = (ProgressBar)findViewById(R.id.pgBar);
-        //pgBar.setVisibility(View.VISIBLE);
+
         recView = (RecyclerView)findViewById(R.id.recyclerView);
         recView.setLayoutManager(new LinearLayoutManager(this));    // diff
         messageList = new ArrayList<>();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Message");
-        //pgBar.setVisibility(View.GONE);
+
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
