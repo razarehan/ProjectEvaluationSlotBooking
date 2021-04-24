@@ -1,25 +1,27 @@
 package com.team9.projectevaluationslotbooking;
 
 public class Teacher {
-    private String mail;
+    private String email;
     private String name;
-    private String contactNumber;
+    private String contact;
+    private String branch;
 
     public Teacher() {
     }
 
-    public Teacher(String mail, String name, String contactNumber) {
-        this.mail = mail;
+    public Teacher(String email, String name, String contact, String branch) {
+        this.email = email;
         this.name = name;
-        this.contactNumber = contactNumber;
+        this.contact = contact;
+        this.branch = branch;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -30,11 +32,19 @@ public class Teacher {
         this.name = name;
     }
 
-    public String getContactNumber() {
-        return contactNumber;
+    public String getContact() {
+        return contact;
     }
 
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 }
