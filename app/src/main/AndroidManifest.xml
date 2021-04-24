@@ -30,8 +30,7 @@
         <activity android:name=".MessageComposeActivity"
             android:parentActivityName=".MessageActivity"></activity>
         <activity android:name=".MessageActivity" />
-        <activity android:name=".HomeActivity"
-            android:parentActivityName=".LoginActivity">
+        <activity android:name=".HomeActivity">
         </activity>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".LoginActivity">
