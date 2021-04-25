@@ -104,6 +104,21 @@ public class RegistrationActivity extends AppCompatActivity {
                 else {
                     sex="F";
                 }
+                if(!firstName.matches("^[a-zA-Z]*$")) {
+                    fname.setError("Only contains alphabets");
+                    fname.requestFocus();
+                    return;
+                }
+                if(!lastName.matches("^[a-zA-Z]*$")) {
+                    lname.setError("Only contains alphabets");
+                    lname.requestFocus();
+                    return;
+                }
+                if(!phoneNumber.matches("^[0-9]*$") || phoneNumber.length()!=10) {
+                    phone.setError("Invalid Phone Number");
+                    phone.requestFocus();
+                    return;
+                }
                 //=============================
                 pgBar.setVisibility(View.VISIBLE);
 

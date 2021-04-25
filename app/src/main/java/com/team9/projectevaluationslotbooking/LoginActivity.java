@@ -43,7 +43,10 @@ public class LoginActivity extends AppCompatActivity {
                 String username = user.getText().toString().toLowerCase();
                 String password = pass.getText().toString();
 
-
+                if(username.equals("") || password.equals("")) {
+                    Toast.makeText(LoginActivity.this,"Fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 fAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
