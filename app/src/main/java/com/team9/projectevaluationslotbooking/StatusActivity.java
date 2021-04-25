@@ -40,12 +40,12 @@ public class StatusActivity extends AppCompatActivity {
                     project = ds.getValue(Project.class);
                     if(project.getStudent().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
                         if(project.getTimeAlloted().equals("retry")) {
-                            textView.setText("Please Retry Booking");
+                            textView.setText("Re-BOOK Slot");
                             return;
                         }
                         if(project.getTeacher1().equals("null") || project.getTeacher2().equals("null") ||
                                 project.getTeacher3().equals("null") || project.getTeacher4().equals("null")) {
-                            textView.setText("Not marked yet");
+                            textView.setText("WAIT!! Not all TEACHERS has marked the SLOT");
                             return;
                         }
 //                        if(project.getTeacher1().equals("slot0") || project.getTeacher2().equals("slot0") ||
@@ -73,7 +73,7 @@ public class StatusActivity extends AppCompatActivity {
                             textView.setText("Slot marked on "+project.getSlotRequested()+"\nat 3:00pm - 5:00pm");
                             return;
                         }
-                        textView.setText("Slot can not marked on that date...\nPlease Retry");
+                        textView.setText("Desired SLOT not available...\nPlease REQUEST Again");
                         updateTimeAlloted(ds.getKey());
                     }
                 }

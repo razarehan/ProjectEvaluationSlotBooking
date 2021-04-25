@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pgBar.setVisibility(View.VISIBLE);
                 String username = user.getText().toString().toLowerCase();
                 String password = pass.getText().toString();
 
@@ -47,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"Fill all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                pgBar.setVisibility(View.VISIBLE);
                 fAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

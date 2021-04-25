@@ -74,7 +74,7 @@ public class SearchActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
 
                 for(Teacher teacher: teacherList) {
-                    if(teacher.getName().equals(editText.getText().toString())) {
+                    if(teacher.getName().equalsIgnoreCase(editText.getText().toString())) {
                         name.setText("Name : "+ "" +teacher.getName());
                         phone.setText("Contact Number : "+""+ teacher.getContact());
                         mail.setText("Email : " +""+ teacher.getEmail());
