@@ -30,11 +30,12 @@ public class BookSlotActivity extends AppCompatActivity {
     private Button dateButton, submitBtn;
     private EditText dateVal, pName;
     private DatabaseReference databaseReference;
-
+    private Project pro;
+    private String UID;
     @Override
     protected void onStart() {
         super.onStart();
-
+        pName = (EditText)findViewById(R.id.projectName);
         databaseReference = FirebaseDatabase.getInstance().getReference("Project");
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -43,10 +44,17 @@ public class BookSlotActivity extends AppCompatActivity {
                 for(DataSnapshot ds:snapshot.getChildren()) {
                     Project project = ds.getValue(Project.class);
                     if(project.getStudent().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
-                        Toast.makeText(BookSlotActivity.this, "Already Requested", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                        startActivity(intent);
-                        return;
+                        if(project.getTimeAlloted().equals("retry")) {
+                            UID = ds.getKey();
+                            pro = project;
+                            pName.setText(project.getProjectName());
+                        }
+                        else {
+                            Toast.makeText(BookSlotActivity.this, "Already Requested", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                            startActivity(intent);
+                            return;
+                        }
                     }
                 }
             }
@@ -66,7 +74,7 @@ public class BookSlotActivity extends AppCompatActivity {
 
 
         dateVal = (EditText)findViewById(R.id.editTextDate);
-        pName = (EditText)findViewById(R.id.projectName);
+        //pName = (EditText)findViewById(R.id.projectName);
         dateButton = (Button)findViewById(R.id.date);
         submitBtn = (Button)findViewById(R.id.btn_ReqSlot);
 
@@ -101,9 +109,13 @@ public class BookSlotActivity extends AppCompatActivity {
                     return;
                 }
 
-                Project project = new Project(projectName, slotDate, FirebaseAuth.getInstance().getCurrentUser().getEmail(), "null","null","null","null","null");
+                if(UID != null) {
+                    updateBooking(UID, slotDate, projectName);
+                    return;
+                }
+                pro = new Project(projectName, slotDate, FirebaseAuth.getInstance().getCurrentUser().getEmail(), "null","null","null","null","null");
 
-                FirebaseDatabase.getInstance().getReference().child("Project").push().setValue(project).addOnCompleteListener(new OnCompleteListener<Void>() {
+                FirebaseDatabase.getInstance().getReference().child("Project").push().setValue(pro).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
@@ -116,6 +128,27 @@ public class BookSlotActivity extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+    }
+
+    private void updateBooking(String id, String date, String name) {
+        databaseReference = FirebaseDatabase.getInstance().getReference("Project").child(id);
+        pro.setSlotRequested(date);
+        pro.setProjectName(name);
+        pro.setTimeAlloted("null");
+        pro.setTeacher1("null");
+        pro.setTeacher2("null");
+        pro.setTeacher3("null");
+        pro.setTeacher4("null");
+        databaseReference.setValue(pro).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(BookSlotActivity.this, "Request send successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

@@ -130,6 +130,7 @@ public class MarkSlotActivity extends AppCompatActivity
         if(teacherCode.equals("teacher4"))
             project.setTeacher4(markSlot);
 
+        project.setTimeAlloted("null");
         databaseReference.setValue(project).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
