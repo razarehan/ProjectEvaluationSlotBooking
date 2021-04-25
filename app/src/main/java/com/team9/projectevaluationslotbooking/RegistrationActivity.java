@@ -73,9 +73,21 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(RegistrationActivity.this, "Invalid Email ID", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(!mail_ID.contains("nitc.ac.in"))
+                {
+                    email.setError("Use Nitc email Id");
+                    email.requestFocus();
+                    return;
+                }
+
                 boolean m=false, f=false;
                 m = male.isChecked();
                 f = female.isChecked();
+                if(password.length()<6) {
+                    pass.setError("Password length must not less than 6 characater)");
+                    pass.requestFocus();
+                    return;
+                }
 
                 if(!password.equals(cnfPassword)) {
                     Toast.makeText(RegistrationActivity.this, "Passwords are not same", Toast.LENGTH_SHORT).show();
